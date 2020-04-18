@@ -1,5 +1,5 @@
 const Layout = props => (
-    <div class="container fluid">
+    <div className="container fluid">
       {props.children}
     </div>
 );

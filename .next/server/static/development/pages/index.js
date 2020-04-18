@@ -109,7 +109,7 @@ var _jsxFileName = "/Users/aprofeit/src/github.com/aprofeit/polls/components/lay
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 const Layout = props => __jsx("div", {
-  class: "container fluid",
+  className: "container fluid",
   __self: undefined,
   __source: {
     fileName: _jsxFileName,
@@ -143,99 +143,140 @@ var _jsxFileName = "/Users/aprofeit/src/github.com/aprofeit/polls/pages/index.js
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
-function Index() {
-  return __jsx(_components_layout__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 7,
-      columnNumber: 5
-    }
-  }, __jsx("h1", {
-    class: "mt-4 mb-4",
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 8,
-      columnNumber: 7
-    }
-  }, "New Poll"), __jsx(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_2___default.a, {
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 9,
-      columnNumber: 7
-    }
-  }, __jsx(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_2___default.a.Group, {
-    controlId: "pollQuestion",
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 10,
-      columnNumber: 9
-    }
-  }, __jsx(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_2___default.a.Label, {
-    hidden: true,
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 11,
-      columnNumber: 11
-    }
-  }, "Question"), __jsx(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_2___default.a.Control, {
-    type: "text",
-    placeholder: "Question",
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 12,
-      columnNumber: 11
-    }
-  })), __jsx(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_2___default.a.Group, {
-    controlId: "pollOptions",
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 15,
-      columnNumber: 9
-    }
-  }, __jsx(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_2___default.a.Label, {
-    hidden: true,
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 16,
-      columnNumber: 11
-    }
-  }, "Options"), __jsx(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_2___default.a.Control, {
-    type: "text",
-    placeholder: "Answers",
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 17,
-      columnNumber: 11
-    }
-  }), __jsx(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_2___default.a.Text, {
-    className: "font-weight-lighter",
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 18,
-      columnNumber: 11
-    }
-  }, "Enter the potential answers seperated by commas. For example: \"Red, blue, green\" would create \"Red\", \"blue\", and \"green\" as three options for the poll.")), __jsx(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_3___default.a, {
-    variant: "primary",
-    type: "submit",
-    __self: this,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 21,
-      columnNumber: 9
-    }
-  }, "Create")));
+
+
+class Index extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
+  constructor(...args) {
+    super(...args);
+
+    _defineProperty(this, "state", {
+      question: "",
+      answers: "",
+      submitted: false
+    });
+
+    _defineProperty(this, "handleSubmit", e => {
+      e.preventDefault();
+      console.log({
+        question: this.state.question,
+        answers: this.state.answers
+      });
+    });
+
+    _defineProperty(this, "handleQuestionChange", e => {
+      this.setState({
+        question: e.target.value
+      });
+    });
+
+    _defineProperty(this, "handlePollOptionsChange", e => {
+      this.setState({
+        answers: e.target.value
+      });
+    });
+  }
+
+  render() {
+    return __jsx(_components_layout__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 35,
+        columnNumber: 7
+      }
+    }, __jsx("h1", {
+      className: "mt-4 mb-4",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 36,
+        columnNumber: 9
+      }
+    }, "New Poll"), __jsx(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_2___default.a, {
+      onSubmit: this.handleSubmit,
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 37,
+        columnNumber: 9
+      }
+    }, __jsx(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_2___default.a.Group, {
+      controlId: "pollQuestion",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 38,
+        columnNumber: 11
+      }
+    }, __jsx(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_2___default.a.Label, {
+      hidden: true,
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 39,
+        columnNumber: 13
+      }
+    }, "Question"), __jsx(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_2___default.a.Control, {
+      type: "text",
+      placeholder: "Question",
+      value: this.state.question,
+      onChange: this.handleQuestionChange,
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 40,
+        columnNumber: 13
+      }
+    })), __jsx(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_2___default.a.Group, {
+      controlId: "pollOptions",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 43,
+        columnNumber: 11
+      }
+    }, __jsx(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_2___default.a.Label, {
+      hidden: true,
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 44,
+        columnNumber: 13
+      }
+    }, "Options"), __jsx(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_2___default.a.Control, {
+      type: "text",
+      placeholder: "Answers",
+      value: this.state.answers,
+      onChange: this.handlePollOptionsChange,
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 45,
+        columnNumber: 13
+      }
+    }), __jsx(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_2___default.a.Text, {
+      className: "font-weight-lighter",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 46,
+        columnNumber: 13
+      }
+    }, "Enter the potential answers seperated by commas. For example: \"Red, blue, green\" would create \"Red\", \"blue\", and \"green\" as three options for the poll.")), __jsx(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_3___default.a, {
+      variant: "primary",
+      type: "submit",
+      __self: this,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 49,
+        columnNumber: 11
+      }
+    }, "Create")));
+  }
+
 }
 
 /***/ }),
