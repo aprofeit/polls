@@ -9,17 +9,17 @@ export default function Index() {
       <Form>
         <Form.Group controlId="pollQuestion">
           <Form.Label hidden>Question</Form.Label>
-          <Form.Control type="text" placeholder="Poll Question" />
+          <Form.Control type="text" placeholder="Question" />
         </Form.Group>
 
         <Form.Group controlId="pollOptions">
-          <Form.Label hidden>?Options</Form.Label>
+          <Form.Label hidden>Options</Form.Label>
           <Form.Control type="text" placeholder="Answers" />
-          <Form.Text className="font-weight-lighter">Enter the potential answers seperated by commas. Example: "Red, blue, green."</Form.Text>
+          <Form.Text className="font-weight-lighter">Enter the potential answers seperated by commas. For example: "Red, blue, green" would create "Red", "blue", and "green" as three options for the poll.</Form.Text>
         </Form.Group>
 
         <Button variant="primary" type="submit">
-          Submit
+          Create
         </Button>
       </Form>
     </Layout>

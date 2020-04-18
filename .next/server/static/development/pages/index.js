@@ -186,7 +186,7 @@ function Index() {
     }
   }, "Question"), __jsx(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_2___default.a.Control, {
     type: "text",
-    placeholder: "Poll Question",
+    placeholder: "Question",
     __self: this,
     __source: {
       fileName: _jsxFileName,
@@ -209,7 +209,7 @@ function Index() {
       lineNumber: 16,
       columnNumber: 11
     }
-  }, "?Options"), __jsx(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_2___default.a.Control, {
+  }, "Options"), __jsx(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_2___default.a.Control, {
     type: "text",
     placeholder: "Answers",
     __self: this,
@@ -226,7 +226,7 @@ function Index() {
       lineNumber: 18,
       columnNumber: 11
     }
-  }, "Enter the potential answers seperated by commas. Example: \"Red, blue, green.\"")), __jsx(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_3___default.a, {
+  }, "Enter the potential answers seperated by commas. For example: \"Red, blue, green\" would create \"Red\", \"blue\", and \"green\" as three options for the poll.")), __jsx(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_3___default.a, {
     variant: "primary",
     type: "submit",
     __self: this,
@@ -235,7 +235,7 @@ function Index() {
       lineNumber: 21,
       columnNumber: 9
     }
-  }, "Submit")));
+  }, "Create")));
 }
 
 /***/ }),
