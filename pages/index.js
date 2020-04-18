@@ -3,6 +3,7 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Spinner from 'react-bootstrap/Spinner'
 import Router from 'next/router'
+import axios from 'axios'
 
 export default class Index extends React.Component {
   state = {
@@ -15,6 +16,16 @@ export default class Index extends React.Component {
     e.preventDefault()
 
     this.setState({submitted: true})
+
+    const host = process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://polls-api.profeit.com"
+
+    axios.post(
+      `${host}/polls`,
+      { poll: { question: this.state.question, answers: this.state.answers } },
+      { headers: { 'Content-Type': 'application/json' } }
+    ).then(function(response) {
+      console.log(response)
+    })
   }
 
   handleQuestionChange = (e) => {
