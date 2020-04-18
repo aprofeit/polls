@@ -28,6 +28,7 @@ class Poll extends React.Component {
   }
 
   render() {
+    const pollLocation = `https://polls.aprofeit.com/polls/${this.props.poll.token}`
     return (
       <Layout>
         <h2 className="mt-4 mb-4">{this.props.poll.question}</h2>
@@ -40,6 +41,8 @@ class Poll extends React.Component {
               )
             })}
           </Form.Group>
+
+          <p>Share <a href={pollLocation}>{pollLocation}</a> with whoever else you want to answer the poll before submitting your own answer if you want any other answers other than you own.</p>
 
           <Button variant="primary" type="submit">
             Respond
