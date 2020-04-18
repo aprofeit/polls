@@ -3,7 +3,6 @@ import axios from 'axios'
 
 class Poll extends React.Component {
   render() {
-    console.log(this.props.poll)
     return (
       <Layout>
 
@@ -23,7 +22,7 @@ class Poll extends React.Component {
 }
 
 export async function getServerSideProps(context) {
-  const host = process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://stocks-api.profeit.com"
+  const host = process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://polls-api.profeit.com"
   const response = await axios.get(`${host}/polls/${context.query.token}`)
   return { props: { poll: response.data } }
 }
