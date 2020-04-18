@@ -1,7 +1,7 @@
 import Layout from '../../components/layout'
 import axios from 'axios'
-import Form from 'react-bootstrap/form'
-import Button from 'react-bootstrap/button'
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
 import Router from 'next/router'
 
 class Poll extends React.Component {
