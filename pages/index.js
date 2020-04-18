@@ -1,6 +1,7 @@
 import Layout from '../components/layout';
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import Spinner from 'react-bootstrap/Spinner'
 
 export default class Index extends React.Component {
   state = {
@@ -12,10 +13,7 @@ export default class Index extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault()
 
-    console.log({
-      question: this.state.question,
-      answers: this.state.answers
-    })
+    this.setState({submitted: true})
   }
 
   handleQuestionChange = (e) => {
@@ -46,8 +44,8 @@ export default class Index extends React.Component {
             <Form.Text className="font-weight-lighter">Enter the potential answers seperated by commas. For example: "Red, blue, green" would create "Red", "blue", and "green" as three options for the poll.</Form.Text>
           </Form.Group>
 
-          <Button variant="primary" type="submit">
-            Create
+          <Button variant="primary" type="submit" disabled={this.state.submitted}>
+            Create {this.state.submitted && <Spinner animation="border" size="sm" />}
           </Button>
         </Form>
       </Layout>
