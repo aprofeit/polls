@@ -3,12 +3,20 @@ import axios from 'axios'
 
 class Poll extends React.Component {
   render() {
+    console.log(this.props.poll)
     return (
       <Layout>
-        <div>
-          <p>{this.props.poll.question}</p>
-          <p>{this.props.poll.answer_list}</p>
+
+        <h2 className="mt-4 mb-4">{this.props.poll.question}</h2>
+
+        <div className="mb-3">
+          <code>
+            {this.props.poll.answer_list.map(function(answer) {
+              return (<li>{answer}</li>)
+            })}
+          </code>
         </div>
+        <p className="font-weight-lighter">This is where you'd normally choose an answer. But this isn't done.</p>
       </Layout>
     )
   }

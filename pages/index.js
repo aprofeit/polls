@@ -24,7 +24,7 @@ export default class Index extends React.Component {
       { poll: { question: this.state.question, answers: this.state.answers } },
       { headers: { 'Content-Type': 'application/json' } }
     ).then(function(response) {
-      console.log(response)
+      Router.push(`/polls/${response.data.token}`)
     })
   }
 
