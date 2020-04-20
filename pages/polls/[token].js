@@ -41,7 +41,7 @@ class Poll extends React.Component {
           </Link>
         </div>
 
-        <h2 className="mt-2 mb-2">{this.props.poll.question}</h2>
+        <h1 className="mt-2 mb-2" className="h4">{this.props.poll.question}</h1>
 
         <Form onSubmit={this.handleSubmit}>
           <Form.Group>
