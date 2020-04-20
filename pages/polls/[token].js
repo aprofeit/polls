@@ -3,6 +3,8 @@ import axios from 'axios'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Router from 'next/router'
+import Link from 'next/link'
+import { FaChevronLeft } from 'react-icons/fa'
 
 class Poll extends React.Component {
   state = {
@@ -31,7 +33,15 @@ class Poll extends React.Component {
     const pollLocation = `https://polls.aprofeit.com/polls/${this.props.poll.token}`
     return (
       <Layout>
-        <h2 className="mt-4 mb-4">{this.props.poll.question}</h2>
+        <div>
+          <Link href="/">
+            <a>
+              <FaChevronLeft style={{ position: 'relative', top: '-2px' }} /> Back
+            </a>
+          </Link>
+        </div>
+
+        <h2 className="mt-2 mb-2">{this.props.poll.question}</h2>
 
         <Form onSubmit={this.handleSubmit}>
           <Form.Group>

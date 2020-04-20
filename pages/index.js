@@ -58,13 +58,11 @@ export default class Index extends React.Component {
   render() {
     return (
       <Layout>
-        <h1 className="mt-4 mb-4">Polls</h1>
-
-        <h4 className="mb-1">Recent</h4>
+        <h4 className="mt-4 mb-1">Recent</h4>
         <ListGroup variant="flush" className="mb-4">
           {this.state.recentPolls.map(poll => {
             return (
-              <Link href={`/polls/${poll.token}`} passHref>
+              <Link href="/polls/[token]" as={`/polls/${poll.token}`} passHref>
                 <ListGroup.Item action>{poll.question}</ListGroup.Item>
               </Link>
             )
