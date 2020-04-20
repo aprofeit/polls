@@ -6,13 +6,14 @@ import Router from 'next/router'
 import ListGroup from 'react-bootstrap/ListGroup'
 import axios from 'axios'
 import Link from 'next/link'
+import PollList from '../components/PollList'
 
 export default class Index extends React.Component {
   state = {
     question: "",
     answers: "",
     submitted: false,
-    recentPolls: []
+    recentPolls: null
   }
 
   handleSubmit = (e) => {
@@ -59,15 +60,7 @@ export default class Index extends React.Component {
     return (
       <Layout>
         <h4 className="mt-4 mb-1">Recent</h4>
-        <ListGroup variant="flush" className="mb-4">
-          {this.state.recentPolls.map(poll => {
-            return (
-              <Link href="/polls/[token]" as={`/polls/${poll.token}`} passHref>
-                <ListGroup.Item action>{poll.question}</ListGroup.Item>
-              </Link>
-            )
-          })}
-        </ListGroup>
+        {this.state.recentPolls ? <PollList polls={this.state.recentPolls} /> : <Spinner animation="border" size="sm" className="mb-3" />}
 
         <h4 className="mb-3">New</h4>
         <Form onSubmit={this.handleSubmit}>
