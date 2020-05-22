@@ -7,6 +7,8 @@ import Link from 'next/link'
 import { FaChevronLeft } from 'react-icons/fa'
 
 class Poll extends React.Component {
+  apiHost = process.env.NODE_ENV === "development" ? "http://localhost:3001" : "https://polls-api.profeit.com"
+
   state = {
     answer: null
   }
@@ -19,7 +21,7 @@ class Poll extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    const host = process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://polls-api.profeit.com"
+    const host = process.env.NODE_ENV === "development" ? "http://localhost:3001" : "https://polls-api.profeit.com"
     axios.post(
       `${host}/polls/${this.props.poll.token}/poll_responses`,
       { poll_response: { answer: this.state.answer } },
@@ -30,7 +32,7 @@ class Poll extends React.Component {
   }
 
   render() {
-    const pollLocation = `https://polls.aprofeit.com/polls/${this.props.poll.token}`
+    const pollLocation = `${this.apiHost}/polls/${this.props.poll.token}`
     return (
       <Layout>
         <div>
