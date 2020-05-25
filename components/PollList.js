@@ -6,8 +6,8 @@ export default function PollList ({polls}) {
     <ListGroup variant="flush" className="mb-4">
     {polls.map(poll => {
       return (
-        <Link href="/polls/[token]" as={`/polls/${poll.token}`} passHref>
-        <ListGroup.Item action>{poll.question}</ListGroup.Item>
+        <Link href="/polls/[token]" as={`/polls/${poll.token}`} key={poll.token} passHref>
+          <ListGroup.Item action>{poll.question}</ListGroup.Item>
         </Link>
       )
     })}

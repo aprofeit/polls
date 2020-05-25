@@ -1,10 +1,10 @@
 import Layout from '../../components/layout'
+import BackButton from '../../components/BackButton'
 import axios from 'axios'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Router from 'next/router'
 import Link from 'next/link'
-import { FaChevronLeft } from 'react-icons/fa'
 
 class Poll extends React.Component {
   apiHost = process.env.NODE_ENV === "development" ? "http://localhost:3001" : "https://polls.profeit.com"
@@ -35,21 +35,15 @@ class Poll extends React.Component {
     const pollLocation = `${this.apiHost}/polls/${this.props.poll.token}`
     return (
       <Layout>
-        <div>
-          <Link href="/">
-            <a>
-              <FaChevronLeft style={{ position: 'relative', top: '-2px' }} /> Back
-            </a>
-          </Link>
-        </div>
+        <BackButton label="Back" />
 
         <h1 className="mt-2 mb-2" className="h4">{this.props.poll.question}</h1>
 
         <Form onSubmit={this.handleSubmit}>
           <Form.Group>
-            {this.props.poll.answer_list.map(answer => {
+            {this.props.poll.poll_options.map(pollOption => {
               return (
-                <Form.Check custom type="radio" id={`option-${answer}`} label={answer} name="answer" value={answer} onClick={this.handleSelect} />
+                <Form.Check key={pollOption.id} custom type="radio" id={`option-${pollOption.id}`} label={pollOption.label} name="answer" value={pollOption.id} onClick={this.handleSelect} />
               )
             })}
           </Form.Group>

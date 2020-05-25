@@ -25,7 +25,7 @@ export default class Index extends React.Component {
 
     axios.post(
       `${host}/polls`,
-      { poll: { question: this.state.question, answers: this.state.answers } },
+      { poll: { question: this.state.question, options: this.state.answers } },
       { headers: { 'Content-Type': 'application/json' } }
     ).then(function(response) {
       Router.push(`/polls/${response.data.token}`)
@@ -51,7 +51,7 @@ export default class Index extends React.Component {
       { heaaders: { 'Content-Type': 'application/json' } }
     ).then(response => (
       this.setState({
-        recentPolls: response.data.polls
+        recentPolls: response.data
       })
     ))
   }
