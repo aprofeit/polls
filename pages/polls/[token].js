@@ -10,12 +10,12 @@ class Poll extends React.Component {
   apiHost = process.env.NODE_ENV === "development" ? "http://localhost:3001" : "https://polls.profeit.com"
 
   state = {
-    answer: null
+    optionId: null
   }
 
   handleSelect = (e) => {
     this.setState({
-      answer: e.target.value
+      optionId: e.target.value
     })
   }
 
@@ -24,7 +24,7 @@ class Poll extends React.Component {
     const host = process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://polls-api.profeit.com"
     axios.post(
       `${host}/polls/${this.props.poll.token}/poll_responses`,
-      { poll_response: { answer: this.state.answer } },
+      { poll_response: { option_id: this.state.optionId } },
       { headers: { 'Content-Type': 'application/json' } }
     ).then(response => {
       Router.push(`/polls/${this.props.poll.token}/results`)
@@ -43,7 +43,7 @@ class Poll extends React.Component {
           <Form.Group>
             {this.props.poll.poll_options.map(pollOption => {
               return (
-                <Form.Check key={pollOption.id} custom type="radio" id={`option-${pollOption.id}`} label={pollOption.label} name="answer" value={pollOption.id} onClick={this.handleSelect} />
+                <Form.Check key={pollOption.id} custom type="radio" id={`option-${pollOption.id}`} label={pollOption.label} name="option_id" value={pollOption.id} onClick={this.handleSelect} />
               )
             })}
           </Form.Group>
